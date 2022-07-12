@@ -1,0 +1,30 @@
+﻿networks:
+  default:
+    name: konggateway_default
+services:
+  #run --rm --name idpesrver 
+  identity-server:
+    image: egonzalezatos/upgrade.identity-server
+    container_name: "identity-server-container"
+    ports:
+      - 5000:80
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DB_SERVER: idp-db
+      DB_PORT: 1433
+      DB_USERNAME: sa
+      DB_PASSWORD: Admin123
+      
+  idp-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: idp-db
+    ports:
+      - 1435:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin123
+    volumes:
+      - idp_data:/var/opt/mssql
+      
+volumes: 
+  idp_data:

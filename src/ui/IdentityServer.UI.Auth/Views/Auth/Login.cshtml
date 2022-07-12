@@ -1,0 +1,33 @@
+﻿@model LoginDto
+
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <form asp-controller="ExternalAuth" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl"
+          method="post">
+        @foreach (var provider in Model.ExternalProviders)
+        {
+            <button name="provider" type="submit" value="@provider.Name">
+                @provider.Name
+            </button>            
+        }
+    </form>
+</div>
+<div>
+    <form asp-controller="Auth" asp-action="Login" method="post">
+        <input type="hidden" asp-for="ReturnUrl"/>
+        <label for="username">Username:</label><br>
+        <input asp-for="Username" id="username" value="John"><br>
+        <label for="pwd">Password:</label><br>
+        <input asp-for="Password" type="password" id="pwd"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+</div>

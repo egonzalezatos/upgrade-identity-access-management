@@ -1,0 +1,21 @@
+@model ExternalRegisterDto
+
+@{
+    ViewData["Title"] = "External Register Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <form asp-controller="Auth" asp-action="ExternalRegister" method="post">
+        <input type="hidden" asp-for="RedirectUrl"/>
+        <label for="username">Username:</label><br>
+        <input asp-for="Username" id="username" value="John"><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+</div>
