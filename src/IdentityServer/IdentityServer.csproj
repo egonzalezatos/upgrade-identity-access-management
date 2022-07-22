@@ -9,11 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\cross-cutting\IdentityServer.Security\IdentityServer.Security.csproj" />
-    <ProjectReference Include="..\IdentityServer.API\IdentityServer.API.csproj" />
-    <ProjectReference Include="..\IdentityServer.ExternalProviders\IdentityServer.ExternalProviders.csproj" />
-    <ProjectReference Include="..\IdentityServer.Infrastructure\IdentityServer.Infrastructure.csproj" />
-    <ProjectReference Include="..\ui\IdentityServer.UI.Auth\IdentityServer.UI.Auth.csproj" />
+    <ProjectReference Include="..\application\ui\IdentityServer.UI.Auth\IdentityServer.UI.Auth.csproj" />
+    <ProjectReference Include="..\cross-cutting\IdentityServer.Options\IdentityServer.Options.csproj" />
+    <ProjectReference Include="..\infrastructure\IdentityServer.ExternalProviders\IdentityServer.ExternalProviders.csproj" />
+    <ProjectReference Include="..\infrastructure\IdentityServer.Infrastructure\IdentityServer.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
