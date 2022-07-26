@@ -63,7 +63,6 @@ namespace IdentityServer.Infrastructure.Configuration.Seeds
                 ClientId = "trainee_tracking_service",
                 ClientName = "Upgrade Trainee Tracking Microservice",
                 ClientSecrets = {new Secret("ClientSecret1".Sha256())},
-                
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 AllowedScopes = {"trainee-admin-service.read"}
             },
@@ -92,6 +91,21 @@ namespace IdentityServer.Infrastructure.Configuration.Seeds
                 RequirePkce = true,
                 RequireClientSecret = false,
                 AllowedScopes = {"openid", "profile", "trainee-tracking-service.read", "trainee-tracking-service.write"},
+                RequireConsent = false,
+            },
+            new Client
+            {
+                ClientId = "postman",
+                ClientSecrets = {new Secret("postman1".Sha256())},
+                AllowedGrantTypes = GrantTypes.Code,
+                RedirectUris = {"https://oauth.pstmn.io/v1/callback"},
+                AllowedCorsOrigins = {"http://localhost"},
+                RequirePkce = true,
+                AllowedScopes =
+                {
+                    "openid", "profile", "trainee-tracking-service.read", "trainee-tracking-service.write",
+                    "trainee-admin-service.read"
+                },
                 RequireConsent = false,
             }
         };
